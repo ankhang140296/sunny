@@ -1,0 +1,54 @@
+<table id="myDiv" class="col-75">
+  <tr>
+    <th></th>
+    <th>Vé thường</th>
+    <th>VIP</th>
+    <th>VVIP</th>
+    <th>Tổng vé</th>
+    <th>Tổng tiền</th>
+  </tr>
+  <tr>
+    <td>New</td>
+    <td>{{statistics.new.standard}}</td>
+    <td>{{statistics.new.vip}}</td>
+    <td>{{statistics.new.vvip}}</td>
+    <td>{{totalTicket.new}}</td>
+    <td>{{totalPrice.new}}</td>
+  </tr>
+  <tr>
+    <td>Pending</td>
+    <td>{{statistics.pending.standard}}</td>
+    <td>{{statistics.pending.vip}}</td>
+    <td>{{statistics.pending.vvip}}</td>
+    <td>{{totalTicket.pending}}</td>
+    <td>{{totalPrice.pending}}</td>
+  </tr>
+  <tr>
+    <td>Completed</td>
+    <td>{{statistics.completed.standard}}</td>
+    <td>{{statistics.completed.vip}}</td>
+    <td>{{statistics.completed.vvip}}</td>
+    <td>{{totalTicket.completed}}</td>
+    <td>{{totalPrice.completed}}</td>
+  </tr>
+  <tr class="table-danger">
+    <td>Total</td>
+    <td>{{statistics.new.standard+statistics.pending.standard+statistics.completed.standard}}</td>
+    <td>{{statistics.new.vip+statistics.pending.vip+statistics.completed.vip}}</td>
+    <td>{{statistics.new.vvip+statistics.pending.vvip+statistics.completed.vvip}}</td>
+    <td>{{totalTicket.new+totalTicket.pending+totalTicket.completed}}</td>
+    <td>{{totalPrice.new+totalPrice.pending+totalPrice.completed}}</td>
+  </tr>
+</table>
+<br>
+<br>
+<div class="row">
+  <div class="col-6">
+    <fusioncharts width="100%" height="400" type="pie3d" [dataSource]=dataSource>
+    </fusioncharts>
+  </div>
+  <div class="col-6">
+    <fusioncharts width="100%" height="400" type="column3d" [dataSource]=dataSourceOfPrice>
+    </fusioncharts>
+  </div>
+</div>

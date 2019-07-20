@@ -1,0 +1,18 @@
+<div>
+  <div class="row">
+    <div class="col-2">
+      <ul>
+        <li><a href="/admin">Danh sách</a></li>
+        <li><a href="/statistics">Thống kê</a></li>
+        <li><a class="active" href="/analysis">Phân tích</a></li>
+      </ul>
+    </div>
+    <!-- Thống kê vé -->
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom" class="col-10">
+      <h5>Phân tích dữ liệu khách hàng</h5>
+      <fusioncharts width="100%" height="400" type="timeseries" [dataSource]=dataSource>
+      </fusioncharts>
+    </div>
+  </div>
+</div>

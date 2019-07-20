@@ -1,0 +1,21 @@
+<div>
+  <div class="row">
+    <div class="col-2">
+      <ul>
+        <li><a href="/admin">Danh sách</a></li>
+        <li><a class="active" href="/statistics">Thống kê</a></li>
+        <li><a href="/analysis">Phân tích</a></li>
+      </ul>
+    </div>
+    <!-- Thống kê vé -->
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom" class="col-10">
+      <h5>Thống kê theo loại vé</h5>
+      <app-type-of-tickets></app-type-of-tickets>
+      <br>
+      <br>
+      <h5>Thống kê theo tình trạng vé</h5>
+      <app-type-of-status></app-type-of-status>
+    </div>
+  </div>
+</div>

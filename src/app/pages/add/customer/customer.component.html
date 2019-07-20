@@ -1,0 +1,133 @@
+<div class="jumbotron">
+    <div class="container mt-3">
+        <h2>Đặt vé</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" action="/action_page.php">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="contactFormFullName">Tên của bạn</label>
+                <input class="form-control" type="text" id="contactFormFullName" formControlName="contactFormFullName"
+                    class="form-control" mdbInputDirective [(ngModel)]="fullName"
+                    [ngClass]="{ 'is-invalid': submitted && f.contactFormFullName.errors }" />
+                <div *ngIf="submitted && f.contactFormFullName.errors" class="col alert alert-danger" role="alert">
+                    <div *ngIf="f.contactFormFullName.errors.required">First Name is required</div>
+                </div>
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="contactFormEmail">Email</label>
+                <input class="form-control" type="email" id="contactFormEmail" formControlName="contactFormEmail"
+                    class="form-control" mdbInputDirective [(ngModel)]="email"
+                    [ngClass]="{ 'is-invalid': submitted && f.contactFormEmail.errors }" />
+                <div *ngIf="submitted && f.contactFormEmail.errors" class="col alert alert-danger" role="alert">
+                    <div *ngIf="f.contactFormEmail.errors.required">Email is required</div>
+                </div>
+            </div>
+            <!-- Mobile -->
+            <div class="form-group">
+                <label for="contactFormMobile">Số điện thoại</label>
+                <input class="form-control" type="text" id="contactFormMobile" formControlName="contactFormMobile"
+                    class="form-control" mdbInputDirective [(ngModel)]="mobile"
+                    [ngClass]="{ 'is-invalid': submitted && f.contactFormMobile.errors }" />
+                <div *ngIf="submitted && f.contactFormMobile.errors" class="col alert alert-danger" role="alert">
+                    <div *ngIf="f.contactFormMobile.errors.required">Mobile is required</div>
+                    <div *ngIf="f.contactFormMobile.errors.minlength">Mobile must be at least 10 characters</div>
+                </div>
+            </div>
+            <!-- Address -->
+            <div class="form-group">
+                <label for="contactFormAddress">Địa chỉ</label>
+                <input class="form-control" type="text" id="contactFormAddress" formControlName="contactFormAddress"
+                    class="form-control" mdbInputDirective [(ngModel)]="address"
+                    [ngClass]="{ 'is-invalid': submitted && f.contactFormAddress.errors }" />
+                <div *ngIf="submitted && f.contactFormAddress.errors" class="col alert alert-danger" role="alert">
+                    <div *ngIf="f.contactFormAddress.errors.required">Address is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-25">Loại vé</label>
+                <label class="col-75">Số lượng</label>
+            </div>
+            <!-- Standard -->
+            <div class="form-group">
+                <div class="col-25">
+                    <label for="contactFormStandard">Vé thường</label>
+                </div>
+                <div class="col-75">
+                    <select type="text" id="contactFormStandard" placeholder="Số lượng.."
+                        formControlName="contactFormStandard" class="form-control" mdbInputDirective
+                        [(ngModel)]="standard">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="9">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <div>x 200.000 VNĐ</div>
+                </div>
+            </div>
+            <!-- VIP -->
+            <div class="form-group">
+                <div class="col-25">
+                    <label for="contactFormVIP">VIP</label>
+                </div>
+                <div class="col-75">
+                    <select type="text" id="contactFormVIP" placeholder="Số lượng.." formControlName="contactFormVIP"
+                        class="form-control" mdbInputDirective [(ngModel)]="vip">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="9">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <div>x 250.000 VNĐ</div>
+                </div>
+            </div>
+            <!-- VVIP -->
+            <div class="form-group">
+                <div class="col-25">
+                    <label for="contactFormVVIP">VVIP</label>
+                </div>
+                <div class="col-75">
+                    <select type="text" id="contactFormVVIP" placeholder="Số lượng.." formControlName="contactFormVVIP"
+                        class="form-control" mdbInputDirective [(ngModel)]="vvip">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="9">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <div>x 300.000 VNĐ</div>
+                </div>
+            </div>
+            <!-- Price -->
+            <div class="form-group">
+                <p>Tổng số tiền là: {{ caculatePricesOfTickets() }} VNĐ</p>
+            </div>
+
+            <!-- Button Submit -->
+            <div class="form-group">
+                <button (click)="onSubmit()" type="submit" class="btn btn-primary" mdbWavesEffect>Send
+                    <i class="fa fa-paper-plane-o ml-1"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

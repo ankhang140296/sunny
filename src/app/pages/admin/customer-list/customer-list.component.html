@@ -1,0 +1,55 @@
+<div>
+  <input [(ngModel)]="searchText" placeholder="Search.." class="form-control">
+  <div class="row">
+    <div class="col-2">
+      <ul>
+        <li><a class="active" href="/admin">Danh sách</a></li>
+        <li><a href="/statistics">Thống kê</a></li>
+        <li><a href="/analysis">Phân tích</a></li>
+      </ul>
+    </div>
+
+    <div class="col-10">
+      <table class="table table-dark table-striped">
+        <thead>
+          <th>Tên</th>
+          <th>Email</th>
+          <th>Số điện thoại</th>
+          <th>Địa chỉ</th>
+          <th>Vé thường</th>
+          <th>VIP</th>
+          <th>VVIP</th>
+          <th>Tổng tiền</th>
+          <th>Ngày đặt</th>
+          <th>Ngày nhận</th>
+          <th>Status</th>
+          <th></th>
+        </thead>
+        <ng-container
+          *ngFor="let customer of customersArray | grdFilter: {fullName: searchText, mobile:searchText, status:searchText};">
+          <tr>
+            <td>{{customer.fullName}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.mobile}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.ticketType.standard}}</td>
+            <td>{{customer.ticketType.vip}}</td>
+            <td>{{customer.ticketType.vvip}}</td>
+            <td>{{customer.price}}</td>
+            <td>{{customer.dateOrder}}</td>
+            <td>{{customer.dateReceive}}</td>
+            <td>{{customer.status}}</td>
+            <td>
+              <button class="btn btn-outline-info" (click)="onUpdatedStatus(customer,'Pending')">Pending</button>
+              <button class="btn btn-outline-danger" (click)="onUpdatedStatus(customer,'Completed')">Completed</button>
+            </td>
+          </tr>
+        </ng-container>
+
+      </table>
+      <div class="alert alert-danger" *ngIf="updateSuccessfull">
+        Updated successfully
+      </div>
+    </div>
+  </div>
+</div>
