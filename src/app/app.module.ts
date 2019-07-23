@@ -5,20 +5,15 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import {HomeComponent} from './pages/home/home.component';
-import {DetailsComponent} from './pages/details/details.component';
-import {WeatherService} from './services/weather/weather.service';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import {WeatherCardComponent} from './ui/weather-card/weather-card.component';
-import {AddCardComponent} from './ui/add-card/add-card.component';
 import {AddComponent} from './pages/add/add.component';
 import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
-import {UiService} from './services/ui/ui.service';
 import { CustomerService } from './shared/customer.service';
 import { CustomerComponent } from './pages/add/customer/customer.component';
 import { CustomerListComponent } from './pages/admin/customer-list/customer-list.component';
@@ -53,13 +48,9 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme, TimeSeries)
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent,
-    WeatherCardComponent,
-    AddCardComponent,
     AddComponent,
     LoginComponent,
     SignupComponent,
-    AddCardComponent,
     CustomerComponent,
     CustomerListComponent,
     AdminComponent,
@@ -83,8 +74,6 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme, TimeSeries)
     FusionChartsModule
   ],
   providers: [
-    WeatherService,
-    UiService,
     CustomerService,
     StatisticsService,
     DatePipe
