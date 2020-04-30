@@ -28,7 +28,7 @@
     "firebase": "^6.2.4",
     "font-awesome": "^4.7.0",
     "fusioncharts": "^3.13.5-sr.1",
-    "jquery": "^1.12.4",
+    "jquery": "^3.5.0",
     "ngx-bootstrap": "^5.0.0",
     "popper.js": "^1.12.3",
     "rxjs": "^6.0.0",
